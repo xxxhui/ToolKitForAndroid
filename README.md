@@ -1,2 +1,2 @@
 # ToolKitForAndroid
-A collect of useful tools
+A collection of useful Android tools
