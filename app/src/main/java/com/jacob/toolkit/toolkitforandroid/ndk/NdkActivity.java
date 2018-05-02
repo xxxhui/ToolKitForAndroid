@@ -1,7 +1,5 @@
 package com.jacob.toolkit.toolkitforandroid.ndk;
 
-import android.arch.lifecycle.LifecycleRegistry;
-import android.arch.lifecycle.LifecycleRegistryOwner;
 import android.widget.TextView;
 
 import com.jacob.toolkit.toolkitforandroid.R;
