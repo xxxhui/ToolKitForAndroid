@@ -3,8 +3,7 @@ package com.jacob.toolkit.toolkitforandroid.seekbar;
 import android.util.Log;
 
 import com.jacob.toolkit.toolkitforandroid.R;
-import com.jacob.toolkit.toolkitforandroid.base.BaseActivity;
-import com.jacob.toolkit.toolkitforandroid.util.LogUtil;
+import com.jacob.toolkit.toolkitforandroid.ui.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

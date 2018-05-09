@@ -3,8 +3,7 @@ package com.jacob.toolkit.toolkitforandroid.ndk;
 import android.widget.TextView;
 
 import com.jacob.toolkit.toolkitforandroid.R;
-import com.jacob.toolkit.toolkitforandroid.base.BaseActivity;
-import com.jacob.toolkit.toolkitforandroid.util.LogUtil;
+import com.jacob.toolkit.toolkitforandroid.ui.BaseActivity;
 
 /**
  * @author jacob
@@ -22,7 +21,6 @@ public class NdkActivity extends BaseActivity{
         floats = JniInterface.getInstance().changeFloatArray(floats);
 
         for (int i = 0; i < floats.length; i++) {
-            LogUtil.e1("(" + i + "," + floats[i] + ")");
         }
 
     }

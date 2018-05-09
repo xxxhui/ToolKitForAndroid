@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ToolKitForAndroid.iml" filepath="$PROJECT_DIR$/ToolKitForAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stateless4j/stateless4j.iml" filepath="$PROJECT_DIR$/stateless4j/stateless4j.iml" />
+      <module fileurl="file://$PROJECT_DIR$/statemachine/statemachine.iml" filepath="$PROJECT_DIR$/statemachine/statemachine.iml" />
     </modules>
   </component>
 </project>

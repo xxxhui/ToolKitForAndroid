@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>JavaAndJs</title>
+</head>
+
+<body>
+<input type="text" id="message_js" size="70" accept="middle"
+       value="{'id': 01,'command': 'head','type': 'yaw','speed': 10.0,'angle': '90'}"/>
+
+<br/><br/>
+
+<input type="button" id="button_play" onclick="play()" value="play"/>
+
+</body>
+
+<script type="text/javascript">
+
+	function play() {
+	    var a = document.getElementById("message_js").value;
+		window.JavaAndJs.play(a);
+	}
+
+	function onSuccess(c) {
+		alert(c);
+	}
+
+</script>
+</html>

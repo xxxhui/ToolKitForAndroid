@@ -1,13 +1,20 @@
-package com.jacob.toolkit.toolkitforandroid.base;
+package com.jacob.toolkit.toolkitforandroid.ui;
 
 import android.app.Activity;
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleOwner;
+import android.arch.lifecycle.LifecycleRegistry;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.jacob.toolkit.toolkitforandroid.util.LogUtil;
+import com.jacob.toolkit.toolkitforandroid.mvp.presenter.BasePresenter;
+import com.jacob.toolkit.toolkitforandroid.utils.LogHelper;
+
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 
 /**
@@ -15,42 +22,55 @@ import com.jacob.toolkit.toolkitforandroid.util.LogUtil;
  * @date 4/11/18
  */
 
-public abstract class BaseActivity extends Activity {
-    protected String TAG = this.getClass().getSimpleName();
+public abstract class BaseActivity<T extends BasePresenter> extends Activity implements LifecycleOwner {
+
+    protected String TAG = getClass().getSimpleName();
+    private LifecycleRegistry mLifecycleRegistry;
+    private Unbinder mUnbinder;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LogUtil.d(TAG, "onCreate: ");
+        LogHelper.d(TAG, "onCreate: ");
         setWindowFeature();
-        initPresenter();
         setContentLayout();
+
+        mUnbinder = ButterKnife.bind(this);
+        mLifecycleRegistry = new LifecycleRegistry(this);
+        mLifecycleRegistry.markState(Lifecycle.State.CREATED);
+
         initView();
         setListener();
+        initPresenter();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        LogUtil.d(TAG, "onStart: ");
+        LogHelper.d(TAG, "onStart: ");
+        mLifecycleRegistry.markState(Lifecycle.State.STARTED);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        LogUtil.d(TAG, "onResume: ");
+        LogHelper.d(TAG, "onResume: ");
+        mLifecycleRegistry.markState(Lifecycle.State.RESUMED);
     }
 
     @Override
     protected void onPause() {
-        LogUtil.d(TAG, "onPause: ");
         super.onPause();
+        LogHelper.d(TAG, "onPause: ");
+        mLifecycleRegistry.markState(Lifecycle.State.STARTED);
     }
 
     @Override
     protected void onDestroy() {
-        LogUtil.d(TAG, "onDestroy: ");
         super.onDestroy();
+        LogHelper.d(TAG, "onDestroy: ");
+        mLifecycleRegistry.markState(Lifecycle.State.DESTROYED);
+        mUnbinder.unbind();
     }
 
     /**
@@ -83,4 +103,9 @@ public abstract class BaseActivity extends Activity {
         startActivity(intent);
     }
 
+
+    @Override
+    public Lifecycle getLifecycle() {
+        return mLifecycleRegistry;
+    }
 }

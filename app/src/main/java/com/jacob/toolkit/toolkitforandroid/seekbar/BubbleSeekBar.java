@@ -34,7 +34,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.LinearInterpolator;
 
-
 import com.jacob.toolkit.toolkitforandroid.R;
 
 import java.lang.annotation.Retention;
