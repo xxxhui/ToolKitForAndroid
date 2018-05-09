@@ -70,3 +70,8 @@ fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
 
+app/libs/
+app/src/main/java/com/jacob/toolkit/toolkitforandroid/db/
+app/src/main/java/com/jacob/toolkit/toolkitforandroid/ui/fragment/
+stateless4j/libs/
+stateless4j/src/main/res/drawable/

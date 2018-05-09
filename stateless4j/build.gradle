@@ -1,9 +1,24 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'com.novoda.bintray-release'
+
+
+
+publish {
+    userOrg = 'jacobwongfromchina'
+    groupId = 'com.pku.tool'
+    artifactId = 'statemachine'
+    publishVersion = '1.0.0'
+    desc = 'Android state machine sdk'
+    website = 'https://github.com/JacobWongFromChina'
+    repoName = 'maven'
+    bintrayUser = 'jacobwongfromchina'
+    bintrayKey = ""
+    dryRun = false
+}
+
 android {
     compileSdkVersion 27
-
-
 
     defaultConfig {
         minSdkVersion 15
@@ -21,6 +36,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
+
 
 }
 

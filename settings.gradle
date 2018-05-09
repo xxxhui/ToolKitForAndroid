@@ -1,1 +1,1 @@
-include ':app', ':statemachine', ':stateless4j'
+include ':app', ':stateless4j'
